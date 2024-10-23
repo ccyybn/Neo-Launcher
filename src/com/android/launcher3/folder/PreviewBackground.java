@@ -78,7 +78,7 @@ public class PreviewBackground extends CellLayout.DelegatedCellDrawing {
 
     private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-    float mScale = 1f;
+    float mScale = 0.92f;
     private int mBgColor;
     private int mStrokeColor;
     private int mDotColor;
@@ -178,8 +178,8 @@ public class PreviewBackground extends CellLayout.DelegatedCellDrawing {
         } else {
             mStrokeColor = ta.getColor(R.styleable.FolderIconPreview_folderIconBorderColor, 0);
         }
-        mBgColor = ta.getColor(R.styleable.FolderIconPreview_folderPreviewColor, 0);
-        mBgColor = ColorUtils.setAlphaComponent(mBgColor, OmegaUtilsKt.getFolderPreviewAlpha(context));
+        mBgColor = Color.WHITE;
+        mBgColor = ColorUtils.setAlphaComponent(mBgColor, 23);
         ta.recycle();
 
         DeviceProfile grid = activity.getDeviceProfile();
@@ -423,7 +423,7 @@ public class PreviewBackground extends CellLayout.DelegatedCellDrawing {
         }
 
         final float startScale = mScale;
-        final float endScale = isAccepting ? ACCEPT_SCALE_FACTOR : (isHovered ? HOVER_SCALE : 1f);
+        final float endScale = isAccepting ? ACCEPT_SCALE_FACTOR : (isHovered ? HOVER_SCALE : 0.92f);
         Interpolator interpolator =
                 isAccepting != mIsAccepting ? ACCELERATE_DECELERATE : EMPHASIZED_DECELERATE;
         int duration = isAccepting != mIsAccepting ? CONSUMPTION_ANIMATION_DURATION

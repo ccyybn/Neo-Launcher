@@ -1279,9 +1279,7 @@ public class DeviceProfile {
                     + allAppsLeftRightPadding * 2;
             allAppsLeftRightMargin = Math.max(1, (availableWidthPx - usedWidth) / 2);
         } else {
-            allAppsLeftRightPadding =
-                    Math.max(0, desiredWorkspaceHorizontalMarginPx + cellLayoutHorizontalPadding
-                            - (allAppsBorderSpacePx.x / 2));
+            allAppsLeftRightPadding = desiredWorkspaceHorizontalMarginPx;
         }
     }
 
